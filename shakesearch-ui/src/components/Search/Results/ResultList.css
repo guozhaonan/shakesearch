@@ -1,0 +1,7 @@
+.result-list-container {
+  width: 90%;
+  margin: 2% 13%;
+}
+.summary-container {
+  display: flex;
+}

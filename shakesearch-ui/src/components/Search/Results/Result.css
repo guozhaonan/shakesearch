@@ -1,0 +1,26 @@
+.result-card {
+  border-radius: 5px;
+  border: 2px solid #044B3F;
+  padding: 20px;
+  width: 30%;
+  margin: 1% 0;
+  background-color: #EEF9F5;
+  color: #044B3F;
+}
+
+.result-card-contents-container {
+  display: flex;
+}
+
+.unexpanded-text, .expanded-text {
+  margin: 2px 15px;
+}
+
+.expand-button {
+  margin-left: auto;
+}
+
+.highlighted-text {
+  background-color: #33BD89;
+  color: #EEF9F5;
+}

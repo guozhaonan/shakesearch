@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: #044B3F;
+}
+
+.welcome-subtext {
+  margin-top: 0px;
+}
