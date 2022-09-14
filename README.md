@@ -44,6 +44,9 @@ npm start
 
 Navigate to `localhost:3000` to see the following UI:
 
+![Screen Shot 2022-09-14 at 2 07 46 PM](https://user-images.githubusercontent.com/4050758/190243078-1f42f919-a4be-431c-9e0f-f92aff7454fa.png)
+
+
 ### Features
 1. A Straightforward Search Bar (I used colors from Pulley's landing page to color the app 😀)
 
