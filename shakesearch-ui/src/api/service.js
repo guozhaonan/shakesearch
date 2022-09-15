@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getShakespeareTextMatches = (q) => {
-  return axios.get('http://localhost:3001/search', {
+  return axios.get('/search', {
     params: {
       q: q,
     },

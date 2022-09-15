@@ -58,11 +58,13 @@ Navigate to `localhost:3000` to see the following UI:
 
 6. An Empty State for API Calls so that the user isn't misled if their search doesn't generate any results
 
+7. Validation for the Search Bar (if you hit the search icon without any input, the search bar turns red and nothing happens until you type in a valid result)
+
 
 ### Improvements to UX
 For a better user experience, there are some changes that could make the app a much better user experience:
 
-1. Pagination for search results, this could make loading on the frontend faster and create a less overwhelming search experience for users since they'd scroll for quite a long time to get to the last result for a search with many results.
+1. Pagination for search results, this could make loading on the frontend faster (try searching for "Is" and see how it slows the UI down) and create a less overwhelming search experience for users since they'd scroll for quite a long time to get to the last result for a search with many results.
 
 2. Adding functional breadcrumbs (ie: Hamlet > Act 1 > Scene 2) for text found matching your search that is in that specific section of the play. It would also be great if the breadcrumbs linked to the individual sections of the play for even more context. This would require reworking the API to return an array of objects formatted like this:
 

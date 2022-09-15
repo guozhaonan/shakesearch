@@ -18,6 +18,12 @@ func main() {
 		log.Fatal(err)
 	}
 
+	buildHandler := http.FileServer(http.Dir("./shakesearch-ui/build"))
+	http.Handle("/", buildHandler)
+
+	staticHandler := http.StripPrefix("/static", http.FileServer(http.Dir("./shakesearch-ui/build/static")))
+	http.Handle("/static", staticHandler)
+
 	http.HandleFunc("/search", handleSearch(searcher))
 
 	port := os.Getenv("PORT")
@@ -39,7 +45,6 @@ type Searcher struct {
 
 func handleSearch(searcher Searcher) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
-	  w.Header().Set("Access-Control-Allow-Origin", "*")
 		query, ok := r.URL.Query()["q"]
 		if !ok || len(query[0]) < 1 {
 			w.WriteHeader(http.StatusBadRequest)

@@ -12,9 +12,11 @@ import './Search.css';
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState('');
+  const [searchString, setSearchString] = useState('');
+  const [validationError, setValidationError] = useState(false);
   const [searchPerformed, setSearchPerformed] = useState(false);
   const [isApiLoading, setIsApiLoading] = useState(false);
-  const [results, setResults] = useState(['hi this is a specific set of strings that we can then parse either side of']);
+  const [results, setResults] = useState(['']);
 
   const handleTextSearch = (query) => {
     setIsApiLoading(true);
@@ -23,6 +25,7 @@ const Search = () => {
         console.log(response);
         setIsApiLoading(false);
         setSearchPerformed(true);
+        setSearchString(query);
         setResults(response.data);
       })
       .catch((error) => {
@@ -32,6 +35,13 @@ const Search = () => {
   };
 
   const handleClickSearchButton = () => {
+    //Validate if Input exists, otherwise, throw error
+    if (!searchInput) {
+      setValidationError(true);
+      return;
+    } else {
+      setValidationError(false);
+    }
     handleTextSearch(searchInput);
   };
 
@@ -42,6 +52,7 @@ const Search = () => {
           <InputLabel htmlFor="outlined-adornment-amount">Search</InputLabel>
           <OutlinedInput
             id="outlined-adornment-amount"
+            error={validationError}
             value={searchInput}
             disabled={isApiLoading}
             onChange={(e) => setSearchInput(e.target.value)}
@@ -65,7 +76,7 @@ const Search = () => {
         <Loading />
       )}
       {(!isApiLoading && searchPerformed) && (
-        <ResultList results={results} searchString={searchInput}/>
+        <ResultList results={results} searchString={searchString}/>
       )}
     </>
   );
